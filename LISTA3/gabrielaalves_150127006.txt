@@ -1,0 +1,40 @@
+.;Questão 1
+
+• ptr+1 -> "-1004620668" Endereço de memória da segunda posição do vetor v;
+• (*ptr)+1 -> Valor da primeira posição do vetor v + 1;
+• *(ptr+1) -> valor da segunda posição do vetor v;
+• *(ptr+10) -> endereço de memória aleatório pois o vetor só tem 5 posições ;
+
+Questão 4
+
+//dúvida
+
+• vetor = vetor + 2 -> Inválida, não se pode somar um inteiro com um vetor;
+• vetor++ -> Inválida, não se pode somar um inteiro com um vetor ;
+• vetor = ponteiro -> Inválida, não se pode atribuir um endereço de memória a um vetor;
+• ponteiro = vetor -> Válida, mas apresenta endereços de mémoria aleatórios;
+• ponteiro = vetor + 2 -> Válida, mas apresenta endereços de mémoria aleatórios;
+
+Questão 5
+
+//Dúvida
+
+Questão 13
+
+•A função troca_str deve receber o endereço de memória das strings
+
+troca_str (&s1, &s2);
+
+• Na função troca_str deve-se criar uma string auxiliar que irá receber
+o valor que estar armazenado por *x, que recebe o endereço &s1.
+*x recebe o valor que está armazenado por *y, que recebe o endereço de &s2.
+No fim, o valor armazenado no endereço &s2 recebe o valor da variavel auxiliar.
+
+void troca_str (char *x, char *y) {
+  char tmp;
+  tmp = *x;
+  *x = *y;
+  *y = tmp;
+}
+
+Questão 15
