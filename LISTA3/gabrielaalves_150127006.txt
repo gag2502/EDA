@@ -1,23 +1,30 @@
-.;Questão 1
+/*Gabriela Alves da Gama
+Universidade de Brasília - UnB Campus Gama (FGA)*/
 
-• ptr+1 -> "-1004620668" Endereço de memória da segunda posição do vetor v;
-• (*ptr)+1 -> Valor da primeira posição do vetor v + 1;
-• *(ptr+1) -> valor da segunda posição do vetor v;
-• *(ptr+10) -> endereço de memória aleatório pois o vetor só tem 5 posições ;
+Questão 1
+
+• ptr+1 -> 1004 Endereço de memória da segunda posição do vetor v;
+• (*ptr)+1 -> Valor da primeira posição do vetor v + 1, no caso igual a 2;
+• *(ptr+1) -> valor da segunda posição do vetor v, no caso 2;
+• *(ptr+10) -> lixo de memória pois o vetor só tem 5 posições ;
 
 Questão 4
 
-//dúvida
-
-• vetor = vetor + 2 -> Inválida, não se pode somar um inteiro com um vetor;
-• vetor++ -> Inválida, não se pode somar um inteiro com um vetor ;
-• vetor = ponteiro -> Inválida, não se pode atribuir um endereço de memória a um vetor;
-• ponteiro = vetor -> Válida, mas apresenta endereços de mémoria aleatórios;
-• ponteiro = vetor + 2 -> Válida, mas apresenta endereços de mémoria aleatórios;
+• vetor = vetor + 2 -> Inválida, não se pode somar um inteiro com um vetor, quando se trata de um vetor tem que incluir a posição;
+• vetor++ -> Inválida, não se pode somar um inteiro com um vetor, isso seria vetor = vetor + 1 ;
+• vetor = ponteiro -> Inválida, não se pode atribuir um endereço de memória em hexa a um vetor de inteiro;
+• ponteiro = vetor -> Válida, atribui ao ponteiro o endereço base do vetor;
+• ponteiro = vetor + 2 -> Válida, atribui a ponteiro o endereço base acrescido de 2, então seria a posição 2 do vetor;
 
 Questão 5
 
-//Dúvida
+void imprime (char *v, int n) {
+char *c;
+for (c = v; c < v + n; c++)
+printf ("%c", *c);
+}
+A função recebe um vetor e atribui ao ponteiro *c o endereço base do vetor v;
+Imprime os valores do vetor a partir da primeira posição até a última. N indica o tamanho do vetor;
 
 Questão 13
 

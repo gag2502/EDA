@@ -5,7 +5,6 @@ Universidade de Brasília - UnB Campus Gama (FGA)*/
 
 int palavraOrdenada(char *palavra){
   int i = 0;
-  
   while(palavra[i] < palavra[i+1]){
     return 1;
     i++;
