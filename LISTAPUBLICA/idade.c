@@ -1,5 +1,6 @@
 #include <stdio.h>
-int main(void)
+
+int main()
 {
   int hdia, ndia;
   int hmes, nmes;
@@ -7,40 +8,39 @@ int main(void)
   int dia, mes, ano;
   int diferenca;
 
-  hdia = 0;  /* dia de hoje                                               */
-  ndia = 0;  /* dia de nascimento                                         */
-  hmes = 0;  /* mes de hoje                                               */
-  nmes = 0;  /* mes de nascimento                                         */
-  hano = 0;  /* ano de hoje                                               */
-  nano = 0;  /* ano de nascimento                                         */
+  hdia = 0;
+  ndia = 0;
+  hmes = 0;
+  nmes = 0;
+  hano = 0;
+  nano = 0;
 
 
-/*  ENTRADA DE DADOS                                                      */
-  printf("%s","*** Calculadora de Tempo de Vida ANSI C\n");
-  printf("%s","Por favor informe a data de ""hoje?\n");
-  printf("%s","[dd mm aaaa]: ");
-  scanf(" %d%d%d", &hdia, &hmes, &hano);
-  printf("              %2d/%2d/%3d\n\n", hdia, hmes, hano);
 
-  printf("%s","Por favor informe a data de ""nascimento?\n");
-  printf("%s","[dd mm aaaa]: ");
   scanf(" %d%d%d", &ndia, &nmes, &nano);
-  printf("              %2d/%2d/%3d\n\n", ndia, nmes, nano);
+  scanf(" %d%d%d", &hdia, &hmes, &hano);
 
-/* PROCESSAMENTO DE  DADOS                                                */
-  diferenca =   372*hano + 31*hmes + hdia
-              - 372*nano - 31*nmes - ndia;
 
-  ano = diferenca/372;
-  diferenca = diferenca%372;
 
-  mes = diferenca/31;
-  diferenca = diferenca%31;
+  if ( hmes <=12 && hano >= 0 && hdia <= 31 && nmes <=12 && nano >= 0 && ndia <= 31 ){
+      diferenca =   372*hano + 31*hmes + hdia
+                  - 372*nano - 31*nmes - ndia;
 
-  dia = diferenca;
+      ano = diferenca/372;
+      diferenca = diferenca%372;
 
-/* RESULTADO                                                              */
-  printf("%s %d %s %d %s %d %s", /* ---são as máscaras de saída do printf */
-          "Tem de vida:", ano, "ano(s)", mes, "mes(es)", dia, "dia(s).\n");
+      mes = diferenca/31;
+      diferenca = diferenca%31;
+
+      dia = diferenca;
+
+      printf("%d\n%d\n%d\n", ano, mes, dia);
+ }
+
+else {
+
+    printf("data invalida\n");
+
+}
   return 0;
 }
