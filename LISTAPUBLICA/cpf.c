@@ -43,6 +43,9 @@ somaV2 = (dig1*11)+(dig2*10)+(dig3*9)+(dig4*8)+(dig5*7)+(dig6*6)+(dig7*5)+(dig8*
 
 v2 = 11 - somaV2%11;
 
+if(v2 > 9) {
+    v2 = 0;
+}
 
 if(v1 == dig10 && v2 == dig11)
 {
