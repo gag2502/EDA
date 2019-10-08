@@ -2,33 +2,33 @@
 #include <stdlib.h>
 #include "pilhas_int.h"
 
+void imprime_pilha(int valor){
+
+   while (desempilha(&valor)) {
+      printf("%d\n",valor);
+    }
+    printf("Pilha vazia\n");
+
+}
+
 int main() {
 
-  int *numeros;
+  int numeros[3];
   int valor;
   int i = 0;
 
-  numeros = malloc(4*sizeof(int));
 
   numeros[0] = 1;
   numeros[1] = 2;
   numeros[2] = 3;
 
-  cria_pilha();
+ cria_pilha();
+ empilha(numeros[0]);
+ empilha(numeros[1]);
+ empilha(numeros[2]);
 
-  empilha(1);
-  empilha(2);
-  empilha(3);
-  empilha(4);
+ imprime_pilha(valor);
 
-
-  if (desempilha(&valor)){
-    while (desempilha(&valor)) {
-      printf("%d\n",valor);
-    }
-  } else {
-    printf("Não deu certo!\n");
-  }
-
+ destroi_pilha();
 
 }
