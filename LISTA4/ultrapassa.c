@@ -2,36 +2,45 @@
 Universidade de Brasília - UnB Campus Gama (FGA)*/
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void verifica(int *numeros,int limite){
-  for (int i = 0; i < n; i++){
-    soma = soma + numeros[i];
-    if (soma > 90)
-      printf("%d\n",numeros[i]);
-    verifica(numeros,n,i,soma);
+void verifica(int *numeros, int i, int tam, int limite) {
+  int soma = 0;
+
+  if (i >= tam) return;
+  else {
+    while (soma <= limite && i < tam) {
+      soma = soma + numeros[i];
+      i++;
+    }
+
+    if ( soma > limite ) {
+      verifica(numeros, i, tam, limite);
+      printf("%d\n", numeros[i-1]);
+    }
   }
-  printf("%d\n",soma );
 }
 
 
 int main () {
-
-// Criar um vetor com alocação dinâmica
-// Realocar memória caso vetor > n-1
-// guarda todos os números lidos num vetor
-// verificar e somando
-  int n = 0;
-  int numero;
   int *numeros;
-  int i = 0;
-  *numeros = malloc(10*sizeof(int));
+  int num, i, tam, lim;
 
-  for (int i = 0; numeros[i]==0;i++){
-    if(n[i])
+  tam = 10;
+  numeros = malloc(tam*sizeof(int));
 
+  i = 0;
+  while ( scanf( "%d", &numeros[i] ), numeros[i] != 0 ) {
+    i++;
+    if (i == tam) {
+      tam = tam*2;
+      numeros = realloc(numeros, tam*sizeof(int));
+    }
   }
 
-  verifica(numeros,n,0,0);
+  scanf( "%d", &lim );
+
+  verifica(numeros, 0, i, lim);
 
   return 0;
 }

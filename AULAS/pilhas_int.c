@@ -26,10 +26,14 @@ int empilha(int y){
 }
 
 int desempilha(int *y){
-  if(!topo)
-    return 0;
-  *y = pilha[--topo];
-  return 1;
+  if ( pilha != NULL ) {
+    if(!topo)
+      return 0;
+    *y = pilha[--topo];
+    return 1;
+  }
+  else
+    return - 1;
 }
 
 void destroi_pilha() {
