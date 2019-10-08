@@ -3,12 +3,22 @@
 #include "pilhas_int.h"
 
 void imprime_pilha(int valor){
-
-   while (desempilha(&valor)) {
+  int ret;
+  ret = desempilha(&valor);
+  if ( ret == 1 ) {
+    printf("%d\n",valor);
+    while (desempilha(&valor)) {
       printf("%d\n",valor);
     }
-    printf("Pilha vazia\n");
-
+  }
+  else {
+    if ( ret == 0 ) {
+      printf("Pilha vazia\n");
+    }
+    else {
+      printf( "Pilha nao existe\n" );
+    }
+  }
 }
 
 int main() {
