@@ -53,11 +53,14 @@
 
   void produto_matriz_vetor(matriz *m, int linha, int coluna, int *vetor){
     int resultante;
+    int i = 0;
     no *temp;
 
-    while(m->valores[linha] != NULL && temp->coluna > coluna){
-      resultante += *vetor * m->valores[linha] ;
-      m->valores[linha]->prox;
+    //todas as colunas da linha passada como parametro
+    while( temp->coluna > coluna){
+      resultante[i] += vetor[i] * m->valores[linha];
+      i++;
+      m->valores[linha]->prox; // prox coluna da mesma linha
     }
     printf("%d\n",resultante);
 
