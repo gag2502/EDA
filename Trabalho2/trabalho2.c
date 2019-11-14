@@ -58,7 +58,7 @@
 
     //todas as colunas da linha passada como parametro
     while( temp->coluna > coluna){
-      resultante[i] += vetor[i] * m->valores[linha];
+      resultante[i] += vetor[i] * m->valores[linha]->valor; // Ex. resultante[0]+= vetor[0]*valor
       i++;
       m->valores[linha]->prox; // prox coluna da mesma linha
     }
