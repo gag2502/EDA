@@ -25,45 +25,20 @@
  }
 
   void inserir(int linha, int coluna, int valor, matriz *m){
-    no *anterior = m->valores[linha];
-    no *atual = anterior->prox;
-
-    while(atual!=NULL && atual->coluna < coluna){
-      anterior = atual;
-      atual = atual->prox;
-    }
-
-    //elemento não existe
-    if(atual == NULL || atual->coluna > coluna){
       no *novo = malloc(sizeof(no));
       novo->coluna = coluna;
       novo->valor = valor;
-      novo->prox = atual;
-      anterior->prox = novo;
-    } else {
-      //elemento existe
-      if (valor != 0) //valor a ser inserido é diferente de 0
-        atual->valor = valor;
-      else{
-        anterior->prox = atual->prox;
-        free(atual);
-      }
-    }
+      novo->prox = m->valores[linha]->prox;
+      m->valores[linha]->prox = novo;
   }
 
-  void produto_matriz_vetor(matriz *m, int linha, int coluna, int *vetor){
-    int resultante;
-    int i = 0;
-    no *temp;
+  void produto_matriz_vetor(matriz *m, int linha, int *vetor){
+    int resultante = 0;
 
-    //todas as colunas da linha passada como parametro
-    while( temp->coluna > coluna){
-      resultante[i] += *vetor * m->valores[linha]->valor; // Ex.resultante[0]+= vetor[0]*valor da 1a coluna
-      i++;
-      m->valores[linha]->prox; // prox coluna da mesma linha
+    for(no *p=m->valores[linha]->prox;p!=NULL;p=p->prox){
+      resultante += vetor[p->coluna] * p->valor;
     }
-    printf("%d\n",resultante);
-
+      printf("%d\n",resultante);
   }
 
   int main() {
@@ -72,7 +47,6 @@
     int linha,coluna,valor;
     int *vetor;
     matriz *mat;
-    int j;
 
     scanf("%d %d",&m,&n);
 
@@ -82,12 +56,13 @@
       scanf("%d",&vetor[i]);
     }
 
+    inicializa(m,n,mat);
+
     while (scanf("%d %d %d",&linha,&coluna,&valor)!= EOF){
       inserir(linha,coluna,valor,mat);
     }
 
-    while(j > n){
-      produto_matriz_vetor(mat,m,n,&vetor[j]);
-      j++;
-    }
+     for(int j = 0; j < m; j++){
+       produto_matriz_vetor(mat,j,vetor);
+     }
 }
