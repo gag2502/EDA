@@ -2,49 +2,46 @@
 #include <stdlib.h>
 
 
-typedef struct celula{
-  int tamanho;
-  char pe;
-  struct celula *prox;
-}celula;
+typedef struct celula {
+    int numBota;
+    char lado;
+    struct celula *prox;
+} celula;
 
-void insere_inicio_lista(celula *l, int x, char pe){
+void insere_inicio_lista(celula *l, int numBota, char lado){
     celula *novo = malloc(sizeof(celula));
-    novo->tamanho=x;
-    novo->pe=pe;
+    novo->numBota= numBota;
+    novo->lado = lado;
     novo->prox = l->prox;
     l->prox = novo;
 }
 
 
-void contaPares (celula *l) {
-  int i = 0;
-  int j = 0;
-  int qtd;
-  for(celula *p = l->prox;p!=NULL;p=p->prox){
+void conta_pares(celula *l){
 
-    if(p->tamanho == l->prox->tamanho){
-      i++;
-      printf("%d\n", p->tamanho);
-      printf("%d\n", l->prox->tamanho);
-      printf("%d\n", p->prox->tamanho);
-    }
+  int i;
 
-
-
+  for(celula *p=l->prox,i=0 ;p!=NULL,i<=60;p=p->prox,i++){
+    
   }
-
-  printf("%d\n",i);
 
 }
 
 int main(){
-  int t;
-  char p;
-  celula *botas = malloc(sizeof(celula));
-  while(scanf("%d %c ",&t, &p)!= EOF){
-      insere_inicio_lista(botas,t,p);
+
+  int m; //tamanho da botas
+  char l; //lado da bota 'D' ou 'E'
+  int i = 0;
+
+
+
+  scanf("%d", &numBotas);
+
+  celula *botas = malloc(numBotas * sizeof(celula));
+
+  while(i < numBotas){
+    scanf("%d %c",m,l);
+    insere_inicio_lista(l,m,botas);
   }
-  contaPares(botas);
 
 }
