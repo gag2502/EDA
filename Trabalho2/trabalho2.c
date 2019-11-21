@@ -46,11 +46,12 @@
     int m,n;
     int linha,coluna,valor;
     int *vetor;
-    matriz *mat;
+
 
     scanf("%d %d",&m,&n);
 
     vetor = malloc(n*sizeof(int));
+    matriz *mat = malloc(m*sizeof(matriz));
 
     for(int i = 0; i < n;i++){
       scanf("%d",&vetor[i]);
@@ -65,4 +66,5 @@
      for(int j = 0; j < m; j++){
        produto_matriz_vetor(mat,j,vetor);
      }
+
 }

@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "fila_lista.h"
 
-#define N 5
-
 typedef struct Fila {
   int dado;
   struct Fila *prox;

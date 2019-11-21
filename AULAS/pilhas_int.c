@@ -35,6 +35,23 @@ int desempilha(int *y){
   else
     return - 1;
 }
+void imprime_pilha(int valor){
+  int ret;
+  ret = desempilha(&valor);
+  if (ret == 1){
+    printf("%d\n",valor);
+    while (desempilha(&valor)) {
+      printf("%d\n",valor);
+    }
+  }
+  else if (ret == 0) {
+    printf("Pilha Vazia\n");
+  }
+  else {
+    printf("Pilha não existe\n");
+  }
+
+}
 
 void destroi_pilha() {
   free(pilha);

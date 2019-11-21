@@ -5,4 +5,5 @@ int cria_pilha ();
 int empilha(int y); // 1 certo 0 errado
 int desempilha(int *y);
 void destroi_pilha();
+void imprime_pilha(int valor);
 #endif
