@@ -19,10 +19,8 @@ void insere_inicio_lista(celula *l, int numBota, char lado){
 
 void conta_pares(celula *l){
 
-  int i;
-
-  for(celula *p=l->prox,i=0 ;p!=NULL,i<=60;p=p->prox,i++){
-    
+  for(celula *p=l->prox ;p!=NULL;p=p->prox){
+    printf("%d %c\n",p->numBota,p->lado );
   }
 
 }
@@ -31,17 +29,18 @@ int main(){
 
   int m; //tamanho da botas
   char l; //lado da bota 'D' ou 'E'
+  int numBotas;
   int i = 0;
-
-
 
   scanf("%d", &numBotas);
 
   celula *botas = malloc(numBotas * sizeof(celula));
 
   while(i < numBotas){
-    scanf("%d %c",m,l);
-    insere_inicio_lista(l,m,botas);
+    scanf("%d %c",&m,&l);
+    insere_inicio_lista(botas,m,l);
+    i++;
   }
+  conta_pares(botas);
 
 }
