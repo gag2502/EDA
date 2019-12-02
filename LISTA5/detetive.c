@@ -1,62 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Fila {
+typedef struct pista {
   int identificador;
   int valor;
-  int proximo;
-  struct Fila *prox;
-}Fila;
-
-Fila *fila;
-
-int cria_fila(){
-  fila = malloc(sizeof(Fila));
-  if (fila == NULL){
-    printf("Não funcionou!\n");
-  }
-  fila->prox = fila;
-}
-
-int enfileira(int identificador,int valor,int proximo){
-  Fila *novo = malloc(sizeof(Fila));
-  novo->prox = fila->prox;
-  fila->prox = novo;
-  fila->identificador = identificador;
-  fila->valor = valor;
-  fila->proximo = proximo;
-  fila = novo;
-}
-
-
-void ordena_pistas() {
-
-  for (Fila *f = fila->prox; f != fila; f = f->prox){
-      printf("%d\n",f->valor);
-  }
-
-}
+}pista;
 
 
 int main () {
 
-cria_fila();
+  int n;
+  int i = 0;
+  int id,valor;
 
-int identificador1 = 10;
-int valor1 = 35;
-int proximo1 = 80;
+  scanf("%d",&n);
+  struct pista pistas[n];
+  int prox[n];
 
-int identificador2 = 20;
-int valor2 = 50;
-int proximo2 = -1;
+  while (i < n) {
+    scanf("%d %d %d", &pistas[i].identificador,&pistas[i].valor,&prox[i]);
+    i++;
+  }
 
-int identificador3 = 80;
-int valor3 = 57;
-int proximo3 = 20;
+  printf("%d\n",pistas[0].valor);
+  for (int i = 1; i < n; i++) {
+    for(int j = 0; j < n; j++){
+    if(pistas[i].identificador == prox[j])
+      printf("%d\n", pistas[i].identificador);
+    }
+  }
 
-enfileira(identificador1,valor1,proximo1);
-enfileira(identificador2,valor2,proximo2);
-enfileira(identificador3,valor3,proximo3);
-ordena_pistas();
 
 }
